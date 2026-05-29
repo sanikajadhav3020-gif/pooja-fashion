@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pooja Fashion – Feel Like a Princess</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --gold: #c9a84c;
+      --gold-light: #e8d5a3;
+      --gold-dark: #a07830;
+      --white: #ffffff;
+      --cream: #faf8f3;
+      --grey: #888;
+      --light-grey: #f5f5f5;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    /* ===== ANNOUNCEMENT BAR ===== */
+    .announce {
+      background: var(--black);
+      color: var(--gold-light);
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+      background: var(--black);
+      padding: 0 40px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 72px;
+    }
+    .logo {
+      text-decoration: none;
+      text-align: center;
+    }
+    .logo-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    .logo-main span { color: var(--gold); }
+    .logo-sub {
+      font-size: 9px;
+      color: var(--gold);
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      display: block;
+      margin-top: -2px;
+    }
+    nav { display: flex; gap: 28px; }
+    nav a {
+      color: #bbb;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    nav a:hover { color: var(--gold); }
+    .header-right { display: flex; gap: 16px; align-items: center; }
+    .header-right a {
+      color: #bbb;
+      text-decoration: none;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+    .header-right a:hover { color: var(--gold); }
+    .wa-header {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--black) !important;
+      padding: 8px 18px;
+      border-radius: 2px;
+      font-size: 12px !important;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: var(--black);
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 40%),
+        radial-gradient(circle at 60% 80%, rgba(201,168,76,0.06) 0%, transparent 40%);
+    }
+    .hero-lines {
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 80px,
+        rgba(201,168,76,0.03) 80px,
+        rgba(201,168,76,0.03) 81px
+      );
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .hero-text { animation: fadeUp 1s ease; }
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .eyebrow-line { width: 40px; height: 1px; background: var(--gold); }
+    .eyebrow-text {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 68px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.0;
+      margin-bottom: 24px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-desc {
+      color: #999;
+      font-size: 15px;
+      line-height: 1.9;
+      margin-bottom: 40px;
+      max-width: 420px;
+    }
+    .hero-ctas { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: var(--black);
+      padding: 15px 36px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+      border-radius: 2px;
+    }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,168,76,0.3); }
+    .btn-outline {
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.5);
+      padding: 15px 36px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+      border-radius: 2px;
+    }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+    .hero-visual { animation: fadeUp 1s ease 0.2s both; }
+    .hero-gown-display {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .gown-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 4px;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s;
+    }
+    .gown-card:hover {
+      border-color: rgba(201,168,76,0.5);
+      background: rgba(255,255,255,0.07);
+      transform: translateX(8px);
+    }
+    .gown-emoji { font-size: 48px; }
+    .gown-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .gown-info p { color: #888; font-size: 13px; margin-bottom: 8px; }
+    .gown-price { color: var(--gold); font-size: 16px; font-weight: 600; }
+    .hero-stats {
+      display: flex;
+      gap: 30px;
+      margin-top: 8px;
+      padding: 20px;
+      background: rgba(201,168,76,0.05);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 4px;
+    }
+    .stat { text-align: center; flex: 1; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .stat-label { font-size: 11px; color: #666; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+
+    /* ===== FEATURES ===== */
+    .features {
+      background: var(--white);
+      padding: 20px 40px;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+    }
+    .features-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 0;
+    }
+    .feature-icon { font-size: 22px; }
+    .feature-text h4 { font-size: 13px; font-weight: 600; color: var(--black); }
+    .feature-text p { font-size: 12px; color: var(--grey); }
+
+    /* ===== PRODUCTS ===== */
+    .products-section { padding: 90px 40px; background: var(--cream); }
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .section-eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 46px;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 12px;
+    }
+    .section-title em { font-style: italic; color: var(--gold-dark); }
+    .section-desc { color: var(--grey); font-size: 15px; }
+    .gold-line {
+      width: 50px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 16px auto 0;
+    }
+
+    .products-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px;
+    }
+    .product-card {
+      background: var(--white);
+      border: 1px solid #eee;
+      overflow: hidden;
+      transition: all 0.4s;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      border-color: rgba(201,168,76,0.3);
+    }
+    .product-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--black);
+      color: var(--gold);
+      font-size: 10px;
+      font-weight: 600;
+      padding: 5px 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+    .product-img {
+      height: 300px;
+      background: linear-gradient(135deg, #f8f4ee, #efe8d8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.04) 100%);
+    }
+    .product-info { padding: 28px; }
+    .product-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 8px;
+    }
+    .product-info .desc { font-size: 13px; color: var(--grey); margin-bottom: 16px; line-height: 1.7; }
+    .colors-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-bottom: 8px; }
+    .color-dots { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .color-dot {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.2s;
+      title: attr(title);
+    }
+    .color-dot:hover { transform: scale(1.2); border-color: var(--gold); }
+    .sizes-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-bottom: 8px; }
+    .size-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 20px; }
+    .size-tag {
+      padding: 5px 10px;
+      border: 1px solid #ddd;
+      font-size: 12px;
+      color: #555;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .size-tag:hover { border-color: var(--gold); color: var(--gold-dark); }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--black);
+    }
+    .product-price span { font-size: 16px; color: var(--grey); font-weight: 400; }
+    .order-btn {
+      background: var(--black);
+      color: var(--white);
+      padding: 12px 24px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+    .order-btn:hover { background: var(--gold); color: var(--black); }
+
+    /* ===== ABOUT ===== */
+    .about-section {
+      background: var(--black);
+      padding: 90px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .about-section::before {
+      content: '"';
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 400px;
+      color: rgba(201,168,76,0.04);
+      top: -100px;
+      left: -20px;
+      line-height: 1;
+    }
+    .about-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .about-text .eyebrow {
+      color: var(--gold);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .about-text h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 46px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.1;
+    }
+    .about-text h2 em { font-style: italic; color: var(--gold); }
+    .about-text p { color: #999; font-size: 15px; line-height: 1.9; margin-bottom: 16px; }
+    .about-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--gold-light);
+      margin: 24px 0;
+      padding-left: 20px;
+      border-left: 2px solid var(--gold);
+    }
+    .why-list { list-style: none; margin-top: 24px; }
+    .why-list li {
+      color: #bbb;
+      font-size: 14px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .why-list li::before { content: '✓'; color: var(--gold); font-weight: 700; }
+    .about-contact {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 36px;
+    }
+    .about-contact h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .contact-item:last-of-type { border-bottom: none; margin-bottom: 24px; }
+    .contact-icon { font-size: 20px; margin-top: 2px; }
+    .contact-item h4 { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .contact-item p { color: #bbb; font-size: 14px; }
+    .contact-item a { color: #bbb; text-decoration: none; transition: color 0.3s; }
+    .contact-item a:hover { color: var(--gold); }
+    .wa-big {
+      display: block;
+      background: #25d366;
+      color: white;
+      text-align: center;
+      padding: 14px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: opacity 0.3s;
+      border-radius: 2px;
+    }
+    .wa-big:hover { opacity: 0.9; }
+
+    /* ===== INSTAGRAM ===== */
+    .insta-section {
+      padding: 70px 40px;
+      background: var(--cream);
+      text-align: center;
+    }
+    .insta-inner { max-width: 700px; margin: 0 auto; }
+    .insta-icon { font-size: 48px; margin-bottom: 16px; }
+    .insta-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .insta-section p { color: var(--grey); font-size: 14px; margin-bottom: 24px; line-height: 1.8; }
+    .insta-handle {
+      display: inline-block;
+      background: var(--black);
+      color: var(--gold);
+      padding: 14px 32px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: all 0.3s;
+      border-radius: 2px;
+    }
+    .insta-handle:hover { background: var(--gold); color: var(--black); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #050505;
+      color: #666;
+      padding: 50px 40px 20px;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand h3 {
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--white);
+      font-size: 24px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .footer-brand .sub { color: var(--gold); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-brand p { font-size: 13px; line-height: 1.8; color: #666; margin-bottom: 20px; }
+    .footer-col h4 { color: var(--white); font-size: 11px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { color: #666; text-decoration: none; font-size: 13px; transition: color 0.3s; }
+    .footer-col ul li a:hover { color: var(--gold); }
+    .footer-bottom {
+      text-align: center;
+      font-size: 12px;
+      color: #444;
+    }
+    .footer-bottom span { color: var(--gold); }
+
+    /* ===== WHATSAPP FLOAT ===== */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: #25d366;
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+      z-index: 999;
+      animation: pulse 2.5s infinite;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%, 100% { box-shadow: 0 8px 25px rgba(37,211,102,0.4); } 50% { box-shadow: 0 8px 40px rgba(37,211,102,0.7); } }
+
+    @media (max-width: 768px) {
+      .hero-content { grid-template-columns: 1fr; gap: 40px; padding: 60px 20px; }
+      .hero-title { font-size: 42px; }
+      .products-grid { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .footer-top { grid-template-columns: 1fr; gap: 30px; }
+      .features-inner { grid-template-columns: repeat(2, 1fr); }
+      nav { display: none; }
+      .section-title { font-size: 32px; }
+      header { padding: 0 20px; }
+      .products-section, .about-section, .insta-section { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="announce">✨ Free Delivery All Over India &nbsp;|&nbsp; 7 Days Return &nbsp;|&nbsp; WhatsApp: +91 98434 07985</div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <a href="#" class="logo">
+      <div class="logo-main">Pooja <span>Fashion</span></div>
+      <span class="logo-sub">Pune, Maharashtra</span>
+    </a>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#products">Gowns</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-right">
+      <a href="https://www.instagram.com/poojashinde__1010" target="_blank">📸</a>
+      <a href="https://wa.me/919843407985" target="_blank" class="wa-big" style="padding:8px 16px;font-size:11px;border-radius:2px;">💬 Order Now</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-lines"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <div class="eyebrow-line"></div>
+        <span class="eyebrow-text">2026 New Collection</span>
+      </div>
+      <h1 class="hero-title">
+        Feel Like<br/>
+        a <em>Princess</em><br/>
+        Every Day
+      </h1>
+      <p class="hero-desc">
+        Premium Designer Gowns & Maternity Photoshoot Dresses by Pooja Fashion, Pune. Carefully crafted for women who deserve to look and feel extraordinary.
+      </p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn-gold">Shop Collection</a>
+        <a href="https://wa.me/919843407985" class="btn-outline" target="_blank">💬 WhatsApp Order</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-gown-display">
+        <div class="gown-card">
+          <div class="gown-emoji">👗</div>
+          <div class="gown-info">
+            <h3>Princess Net Gown</h3>
+            <p>8 Colors · XS to 3XL</p>
+            <div class="gown-price">₹5,500</div>
+          </div>
+        </div>
+        <div class="gown-card">
+          <div class="gown-emoji">🤰</div>
+          <div class="gown-info">
+            <h3>Maternity Photoshoot Gown</h3>
+            <p>2 Colors · S to XXL</p>
+            <div class="gown-price">₹5,999</div>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">🇮🇳</div>
+            <div class="stat-label">All India Delivery</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">7</div>
+            <div class="stat-label">Day Return</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">COD</div>
+            <div class="stat-label">Available</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="features">
+  <div class="features-inner">
+    <div class="feature-item">
+      <span class="feature-icon">🚚</span>
+      <div class="feature-text">
+        <h4>Free Delivery</h4>
+        <p>All Over India</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">↩️</span>
+      <div class="feature-text">
+        <h4>7 Day Return</h4>
+        <p>Easy Exchange Policy</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">💳</span>
+      <div class="feature-text">
+        <h4>Secure Payment</h4>
+        <p>UPI · GPay · COD</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <span class="feature-icon">💬</span>
+      <div class="feature-text">
+        <h4>WhatsApp Support</h4>
+        <p>+91 98434 07985</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="section-header">
+    <div class="section-eyebrow">Our Collection</div>
+    <h2 class="section-title">Premium <em>Designer</em> Gowns</h2>
+    <p class="section-desc">Handpicked for weddings, parties, photoshoots & special occasions</p>
+    <div class="gold-line"></div>
+  </div>
+
+  <div class="products-grid">
+
+    <!-- Product 1 -->
+    <div class="product-card">
+      <span class="product-badge">⭐ Bestseller</span>
+      <div class="product-img">👗</div>
+      <div class="product-info">
+        <h3>Premium Designer Princess Net Gown</h3>
+        <p class="desc">An elegant princess-style net gown perfect for weddings, parties, and photoshoots. Available in 8 stunning colors with premium quality fabric.</p>
+        <div class="colors-label">Available Colors</div>
+        <div class="color-dots">
+          <div class="color-dot" style="background:#2d6a4f;" title="Emerald Green"></div>
+          <div class="color-dot" style="background:#87ceeb;" title="Sky Blue"></div>
+          <div class="color-dot" style="background:#5d3a1a;" title="Chocolate Brown"></div>
+          <div class="color-dot" style="background:#111;" title="Black"></div>
+          <div class="color-dot" style="background:#722f37;" title="Wine Red"></div>
+          <div class="color-dot" style="background:#f5f5f5;border:1px solid #ddd;" title="White"></div>
+          <div class="color-dot" style="background:#e3a020;" title="Mustard Yellow"></div>
+          <div class="color-dot" style="background:#e8630a;" title="Orange"></div>
+        </div>
+        <div class="sizes-label">Sizes Available</div>
+        <div class="size-tags">
+          <span class="size-tag">XS</span>
+          <span class="size-tag">S</span>
+          <span class="size-tag">M</span>
+          <span class="size-tag">L</span>
+          <span class="size-tag">XL</span>
+          <span class="size-tag">XXL</span>
+          <span class="size-tag">3XL</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">₹5,500 <span>+ Free Delivery</span></div>
+          <a href="https://wa.me/919843407985?text=Hi%20Pooja%20Fashion!%20I%20want%20to%20order%20Premium%20Designer%20Princess%20Net%20Gown%20(₹5500)" target="_blank" class="order-btn">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <span class="product-badge" style="background:var(--gold);color:var(--black);">🤰 Special</span>
+      <div class="product-img" style="background:linear-gradient(135deg,#fde8d8,#f5c9a8);">🤰</div>
+      <div class="product-info">
+        <h3>Premium Maternity Photoshoot Gown</h3>
+        <p class="desc">Beautifully designed maternity gown for your special photoshoot moments. Comfortable, elegant, and perfect for baby shower and pregnancy photography.</p>
+        <div class="colors-label">Available Colors</div>
+        <div class="color-dots">
+          <div class="color-dot" style="background:#c1440e;" title="Rust Orange"></div>
+          <div class="color-dot" style="background:#111;" title="Black"></div>
+        </div>
+        <div class="sizes-label">Sizes Available</div>
+        <div class="size-tags">
+          <span class="size-tag">S</span>
+          <span class="size-tag">M</span>
+          <span class="size-tag">L</span>
+          <span class="size-tag">XL</span>
+          <span class="size-tag">XXL</span>
+        </div>
+        <div class="product-footer">
+          <div class="product-price">₹5,999 <span>+ Free Delivery</span></div>
+          <a href="https://wa.me/919843407985?text=Hi%20Pooja%20Fashion!%20I%20want%20to%20order%20Premium%20Maternity%20Photoshoot%20Gown%20(₹5999)" target="_blank" class="order-btn">Order Now</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Payment methods -->
+  <div style="max-width:1200px;margin:40px auto 0;background:var(--white);border:1px solid #eee;padding:28px 36px;display:flex;align-items:center;gap:30px;flex-wrap:wrap;">
+    <div>
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:8px;">Payment Methods</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:13px;color:#555;align-items:center;">
+        <span>📱 UPI</span>
+        <span>·</span>
+        <span>Google Pay</span>
+        <span>·</span>
+        <span>PhonePe</span>
+        <span>·</span>
+        <span>Paytm</span>
+        <span>·</span>
+        <span>Razorpay</span>
+        <span>·</span>
+        <span style="color:var(--gold-dark);font-weight:600;">Cash on Delivery</span>
+      </div>
+    </div>
+    <div style="margin-left:auto;text-align:right;">
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:4px;">Delivery Time</div>
+      <div style="font-size:15px;font-weight:600;color:var(--black);">5–7 Working Days</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <div class="eyebrow">About Pooja Fashion</div>
+      <h2>Where Every Woman <em>Shines</em></h2>
+      <p>Pooja Fashion is a growing premium fashion brand based in Pune, Maharashtra, dedicated to providing designer gowns and maternity photoshoot dresses of exceptional quality.</p>
+      <p>Founded in 2026, we believe every woman deserves to feel beautiful, confident, and special — whether shopping for a wedding, party, photoshoot, baby shower, or any special occasion.</p>
+      <div class="about-tagline">"Feel Like a Princess with Pooja Fashion"</div>
+      <ul class="why-list">
+        <li>Premium Quality Products</li>
+        <li>Trendy & Unique Designs</li>
+        <li>Secure Payments — All Methods Accepted</li>
+        <li>Fast Delivery Across India</li>
+        <li>Dedicated WhatsApp Customer Support</li>
+        <li>7 Days Return & Exchange Available</li>
+        <li>Customer Satisfaction First</li>
+      </ul>
+    </div>
+    <div class="about-contact" id="contact">
+      <h3>Get in Touch</h3>
+      <div class="contact-item">
+        <span class="contact-icon">👩</span>
+        <div>
+          <h4>Owner</h4>
+          <p>Dipali Shinde</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📍</span>
+        <div>
+          <h4>Location</h4>
+          <p>Pune, Maharashtra, India</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📧</span>
+        <div>
+          <h4>Email</h4>
+          <a href="mailto:ks343173@gmail.com">ks343173@gmail.com</a>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">📸</span>
+        <div>
+          <h4>Instagram</h4>
+          <a href="https://www.instagram.com/poojashinde__1010" target="_blank">@poojashinde__1010</a>
+        </div>
+      </div>
+      <a href="https://wa.me/919843407985?text=Hi%20Pooja%20Fashion!%20I%20want%20to%20know%20more%20about%20your%20gowns." target="_blank" class="wa-big">💬 WhatsApp Us — +91 98434 07985</a>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="insta-section">
+  <div class="insta-inner">
+    <div class="insta-icon">📸</div>
+    <h2>Follow Us on Instagram</h2>
+    <p>Stay updated with our latest arrivals, designer gowns, maternity photoshoot dresses, customer reviews, and exclusive offers. Follow Pooja Fashion for daily fashion inspiration!</p>
+    <a href="https://www.instagram.com/poojashinde__1010" target="_blank" class="insta-handle">📸 @poojashinde__1010</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <h3>Pooja Fashion</h3>
+        <div class="sub">Pune · Maharashtra · India</div>
+        <p>Premium Designer Gowns & Maternity Photoshoot Dresses. Every woman deserves to feel like a princess.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Collection</h4>
+        <ul>
+          <li><a href="#products">Princess Net Gown</a></li>
+          <li><a href="#products">Maternity Gown</a></li>
+          <li><a href="#products">New Arrivals</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="https://wa.me/919843407985" target="_blank">WhatsApp Order</a></li>
+          <li><a href="mailto:ks343173@gmail.com">Email Us</a></li>
+          <li><a href="#about">Return Policy</a></li>
+          <li><a href="https://www.instagram.com/poojashinde__1010" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 <span>Pooja Fashion</span> by Dipali Shinde · Pune, Maharashtra · Made with ❤️ in India</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/919843407985?text=Hi%20Pooja%20Fashion!%20I%20want%20to%20order%20a%20gown." target="_blank" class="wa-float">💬</a>
+
+</body>
+</html>
